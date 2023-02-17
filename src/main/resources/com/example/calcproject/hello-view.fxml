@@ -3,14 +3,45 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.calcproject.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+
+    <Label fx:id="lineLabel"/>
+
+
+    <HBox alignment="CENTER">
+        <Button text="C" onAction="#onClearClick"/>
+        <Button text="√" onAction="#onSqrtClick"/>
+        <Button text="^" fx:id="bPower" onAction="#onOperatorClick"/>
+        <Button text="/" fx:id="bDivide" onAction="#onOperatorClick"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Button text="7" fx:id="b7" onAction="#onNumButtonClick"/>
+        <Button text="8" fx:id="b8" onAction="#onNumButtonClick"/>
+        <Button text="9" fx:id="b9" onAction="#onNumButtonClick"/>
+        <Button text="*" fx:id="bMtply" onAction="#onOperatorClick"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Button text="4" fx:id="b4" onAction="#onNumButtonClick"/>
+        <Button text="5" fx:id="b5" onAction="#onNumButtonClick"/>
+        <Button text="6" fx:id="b6" onAction="#onNumButtonClick"/>
+        <Button text="-" fx:id="bMinus" onAction="#onOperatorClick"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Button text="1" fx:id="b1" onAction="#onNumButtonClick"/>
+        <Button text="2" fx:id="b2" onAction="#onNumButtonClick"/>
+        <Button text="3" fx:id="b3" onAction="#onNumButtonClick"/>
+        <Button text="+" fx:id="bPlus" onAction="#onOperatorClick"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Button text="0" fx:id="b0" onAction="#onNumButtonClick"/>
+        <Button text="." onAction="#onDotClick"/>
+        <Button text="⌫" onAction="#onEraseClick"/>
+        <Button text="=" onAction="#onEqual"/>
+    </HBox>
 </VBox>
