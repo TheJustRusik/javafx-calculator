@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class HelloController {
 
@@ -72,6 +73,8 @@ public class HelloController {
     protected void calc(){
         isFirstNum = true;
         haveDot = true;
+        if(Objects.equals(firstNum, ""))
+            firstNum = "0";
         try{
             switch (operator){
                 case '+' -> firstNum = String.valueOf(Double.valueOf(firstNum) + Double.valueOf(secondNum));
