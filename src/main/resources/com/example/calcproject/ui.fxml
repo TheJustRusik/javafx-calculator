@@ -8,7 +8,7 @@
 
 <?import javafx.scene.control.Button?>
 <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.calcproject.HelloController">
+      fx:controller="com.example.calcproject.Controller">
 
 
     <Label fx:id="lineLabel"/>

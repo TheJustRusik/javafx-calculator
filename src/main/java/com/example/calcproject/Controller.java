@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class HelloController {
+public class Controller {
 
     @FXML
     private Label lineLabel;
@@ -34,14 +34,6 @@ public class HelloController {
     @FXML
     private Button b9;
     @FXML
-    private Button bDot;
-    @FXML
-    private Button bErase;
-    @FXML
-    private Button bClear;
-    @FXML
-    private Button bEqual;
-    @FXML
     private Button bMinus;
     @FXML
     private Button bPlus;
@@ -51,8 +43,6 @@ public class HelloController {
     private Button bMtply;
     @FXML
     private Button bPower;
-    @FXML
-    private Button bSqrt;
 
     static boolean isFirstNum;
     static boolean haveDot;
@@ -60,7 +50,7 @@ public class HelloController {
     static String secondNum;
     static char operator;
 
-    private Map<Button, Buttons> buttonMap = new HashMap<>();
+    private final Map<Button, Buttons> buttonMap = new HashMap<>();
     @FXML
     protected void fnNum(String c){
         if(isFirstNum)
@@ -77,11 +67,11 @@ public class HelloController {
             firstNum = "0";
         try{
             switch (operator){
-                case '+' -> firstNum = String.valueOf(Double.valueOf(firstNum) + Double.valueOf(secondNum));
-                case '-' -> firstNum = String.valueOf(Double.valueOf(firstNum) - Double.valueOf(secondNum));
-                case '*' -> firstNum = String.valueOf(Double.valueOf(firstNum) * Double.valueOf(secondNum));
-                case '/' -> firstNum = String.valueOf(Double.valueOf(firstNum) / Double.valueOf(secondNum));
-                case '^' -> firstNum = String.valueOf(Math.pow(Double.valueOf(firstNum), Double.valueOf(secondNum)));
+                case '+' -> firstNum = String.valueOf(Double.parseDouble(firstNum) + Double.parseDouble(secondNum));
+                case '-' -> firstNum = String.valueOf(Double.parseDouble(firstNum) - Double.parseDouble(secondNum));
+                case '*' -> firstNum = String.valueOf(Double.parseDouble(firstNum) * Double.parseDouble(secondNum));
+                case '/' -> firstNum = String.valueOf(Double.parseDouble(firstNum) / Double.parseDouble(secondNum));
+                case '^' -> firstNum = String.valueOf(Math.pow(Double.parseDouble(firstNum), Double.parseDouble(secondNum)));
             }
 
             lineLabel.setText(firstNum);
@@ -95,7 +85,7 @@ public class HelloController {
         operator = ' ';
     }
     @FXML
-    protected void fnOper(char c){
+    protected void fnOperation(char c){
         if(operator != ' '){
             calc();
         }
@@ -147,11 +137,11 @@ public class HelloController {
     protected void onOperatorClick(ActionEvent event){
         Buttons buttonId = buttonMap.get(event.getSource());
         switch (buttonId){
-            case Bplus -> fnOper('+');
-            case Bminus -> fnOper('-');
-            case Bmtply -> fnOper('*');
-            case Bdivide -> fnOper('/');
-            case Bpower -> fnOper('^');
+            case Bplus -> fnOperation('+');
+            case Bminus -> fnOperation('-');
+            case Bmtply -> fnOperation('*');
+            case Bdivide -> fnOperation('/');
+            case Bpower -> fnOperation('^');
         }
     }
     @FXML
